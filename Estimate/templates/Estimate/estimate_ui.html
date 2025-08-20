@@ -1,0 +1,140 @@
+{% extends "KHSystemApp/view_template.html" %}
+{% load crispy_forms_tags %}
+{% block display %}
+
+<div class="container">
+<h5 class="display-5">Provide Estimate Details </h5>
+<form action="" method="POST" class="est-input-form est-input-form" autocomplete="off">
+   
+    {% csrf_token %}
+       <!--  To Load Entire Form  {{form|crispy}} --> 
+       <!-- To Customize The loaded Fields -->
+       <hr>
+       <div class="row">
+         
+           <div class="col-md-3">
+             {{form.invoice|as_crispy_field}}
+           </div>
+           <div class="col-md-3">
+              {{form.estimateGenerationDate|as_crispy_field}}
+           </div>
+           <div class="col-md-3">
+            {{form.sharedToClientDate|as_crispy_field}}
+           </div> 
+           <div class="col-md-3">
+            {{form.reference|as_crispy_field}}
+          </div> 
+       </div>
+       
+       
+ 
+       <hr>
+
+       <div class="row">
+         <div class="col-md-4">
+           {{form.estimateFormat|as_crispy_field}}
+         </div>
+         <div class="col-md-4">
+               {{form.notes|as_crispy_field}}
+         </div>
+         <div class="col-md-4">
+              {{form.estimateType|as_crispy_field}}
+         </div>
+       </div>
+
+       <hr>
+  <div class="row">
+    
+    
+    <div class="col-md-8">
+      
+      <table class="table table-bordered">
+       <thead>
+        <tr>
+          <th></th>
+          <th>Details/Description</th>
+          <th>Qty</th>
+          <th>Rate</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="checkbox" name="record">
+          </td>
+          <td>
+            <textarea class="detail-header" name='dtl-header' placeholder="----Type Heading ------" rows="1" cols="78"></textarea>
+            <hr>
+            <textarea class="details-txt-area" name='details' rows="5" cols="78"></textarea>
+          </td>
+
+          <td>
+            <textarea class="qty-header" name="qty-header" rows="1" cols="2"></textarea>
+            <hr>
+            <textarea class="qty-txt-area" rows="5" name="quantity" cols="2"></textarea>
+          </td>
+
+          <td>
+            <textarea class="rate-header" name="rt-header" placeholder="Header Value" rows="1" cols="11"></textarea>
+            <hr>
+            <textarea class="rate-txt-area" rows="5" name="rate" cols="11"></textarea>
+          </td>
+
+          <td>
+            <textarea class="amount-header" name="amt-header" rows="1" placeholder="Header Value" cols="11"></textarea>
+            <hr>
+            <textarea class="amount-txt-area" rows="5" name="amount" cols="11"></textarea>
+          </td>
+        </tr>
+       </tbody>
+      </table>
+      
+    </div>
+  </div>
+  <div class="row">
+    
+    <div class="col-md-2">
+      <button type="button" id="delete_row" class="btn btn-outline-success"> <i class="fas fa-minus"></i></button>
+        <button type="button" id="add_row" class="btn btn-outline-success"> <i class="fas fa-plus"></i></button>
+    </div>
+    <div class="col-md-10">
+    </div>
+  </div>
+
+  <hr>
+  <hr>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6"><h4>Preview Estimate </h4></div>
+    <div class="col-md-2"> <button type="button" class="btn btn-success" id="preview">preview</button></div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      {{form.description|as_crispy_field}}
+    </div>
+    <div class="col-md-2">
+      {{form.quantity|as_crispy_field}}
+    </div>
+    <div class="col-md-2">
+      {{form.rate|as_crispy_field}}
+    </div>
+    <div class="col-md-2">
+      {{form.amount|as_crispy_field}}
+    </div>
+  </div>
+   
+  <!--  Here To be pasted Later-->   
+  
+      <div class="row">
+         <div class="col-md-11"></div>
+            <button type="submit" class="btn btn-success col-md-1" > <i class="fas fa-database"></i>Save</button>
+       </div>
+  
+  
+</form>
+
+</div>
+
+{% endblock display %}

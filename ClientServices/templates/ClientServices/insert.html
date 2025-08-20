@@ -1,0 +1,41 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+
+<h5 class="display-5"></h5>
+<h5 class="display-5"></h5>
+<h5 class="display-5">Provide Details Of Client Services Representative</h5>
+<form action="" method="POST" class="input-form" autocomplete="off">
+   
+    {% csrf_token %}
+       <!--  To Load Entire Form  {{form|crispy}} --> 
+       <!-- To Customize The loaded Fields -->
+       <div class="row">
+         <div class="col-md-6">
+            {{form.name|as_crispy_field}}
+         </div>
+         <div class="col-md-6">
+            {{form.phonenumber|as_crispy_field}}
+         </div>
+          </div>
+        <div class="row">
+      <div class="col-md-6">
+         {{form.email|as_crispy_field}}
+      </div>
+      <div class="col-md-6">
+         {{form.address|as_crispy_field}}
+      </div>
+   </div>
+      <div class="row">
+         <div class="col-md-2">
+         </div>
+         <div class="col-md-10">
+               <button type="submit" class="btn btn-success col-md-8"> <i class="fas fa-database"></i>Submit</button>
+         </div>
+
+       </div>
+  
+  
+</form>
+{% endblock contents %}

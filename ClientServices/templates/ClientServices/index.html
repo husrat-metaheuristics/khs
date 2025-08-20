@@ -1,0 +1,53 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+
+<hr>
+<h5 class="display-5"></h5>
+<h5 class="display-5">Client Services Representatives</h5>
+</hr>
+<p class="add-icon"><a href="{% url 'clientservices_insert' %}" class="btn btn-outline-success"> <i class="fas fa-plus"></i></a></p>
+<table class="table table-dark table-hover">
+
+    <thead class="border-bottom font-weight-bold">
+         <tr>
+             <th scope="col">#</th>
+             <th scope="col">Full Name</td>
+             <th scope="col">Cell#</td>
+             <th scope="col">Address</th>
+             <th scope="col">Email</th>
+             <th scope="col">Action  </th>
+
+             
+         </tr>
+    </thead>
+    <tbody>
+            {% for cs in clientservices %}
+
+            <tr>
+                <th scope="row">{{cs.id}}</th>
+                <td>{{cs.name}}</td>
+                <td>{{cs.phonenumber}}</td>
+                <td>{{cs.address}}</td>
+                <td>{{cs.email}}</td>
+                <td> <a href="{% url 'clientservices_update' cs.id %}" class="btn text-secondary px-0">
+                      <i class="fa fa-edit fa-lg"></i></a> 
+
+                      
+
+                      <a href="{% url 'clientservices_delete' cs.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i></a> 
+
+
+                     <a href="{% url 'clientservices_details' cs.id %}" class="btn text-secondary px-0">
+                    <i class="fas fa-file-invoice"></i></a> 
+                </td>
+
+                
+                    
+
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contents %}

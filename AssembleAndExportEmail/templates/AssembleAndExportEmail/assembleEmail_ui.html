@@ -1,0 +1,32 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+<form action="" method="POST" class="input-form" enctype="multipart/form-data" autocomplete="off">
+   <h5 class="display-5">Insert/Update Email Texts.</h5>
+   <hr/>
+    {% csrf_token %}
+       
+      <div class="row">
+         <div class="col-md-6">
+            {{form.invoice|as_crispy_field}}
+         </div>
+         <div class="col-md-6">
+            {{form.emailsPdfFile|as_crispy_field}}
+         </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              {{form.emailText|as_crispy_field}}
+          </div>
+      </div>
+      <div class="row">
+         <div class="col-md-10"></div>
+         <div class="col-md-2">
+               <button type="submit" class="btn btn-success"> <i class="fas fa-database"></i>Save</button>
+         </div>
+       </div>
+  
+  
+</form>
+{% endblock contents %}
