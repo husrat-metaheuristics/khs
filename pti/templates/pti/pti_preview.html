@@ -1,0 +1,192 @@
+{% extends "KHSystemApp/view_template.html" %}
+{% load crispy_forms_tags %}
+{% block display %}
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-8">
+            <h5>Pakistan Mobile Communication Ltd.</h5>
+        </div>
+        <div class="col-md-4">
+            <img src="/static/css/images/jazz_logo.png" alt="logo" width="200" height="100">
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-md-12" >
+            <h4 class="cen">Permission to Invoice</h4>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-3">
+            Department:
+        </div>
+        <div class="col-md-3">
+            Marketing
+        </div>
+        <div class="col-md-3">
+            Agreement/PO No:
+        </div>
+        <div class="col-md-3">
+            {{po.poNumber}}
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            Location:
+        </div>
+        <div class="col-md-3">
+            Islamabad
+        </div>
+        <div class="col-md-3">
+            Contractor's Name:
+        </div>
+        <div class="col-md-3">
+            Fish Bowl Pvt. Ltd
+        </div>
+    </div>
+    
+<br>
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Certificate Of Permission to invoice</h5>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <p>This is to certify that goods/services required and described under the above agreement/purchase order have been
+                completed to the extent of invoice amounts mentioned below. The vendor is permitted to submit below mentioned
+                invoice/invoices with PMCL Finance department;</p>
+        </div>
+    <div>
+
+        
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr#</th>
+                        <th>PO#</th>
+                        <th>PO Amount</th>
+                        <th>Invoice#</th>
+                        <th>Invoice Amount</th>
+                        <th>Deduction</th>
+                        <th>Net Amount</th>
+                        <th>Receipt#</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    
+        
+
+                    <tr>
+                        <td>1</td>
+                        <td>{{pti.poNumber}}</td>
+                        <td>{{pti.po_amount}}</td>
+                        <td>{{pti.inv_number}}</td>
+                        <td>{{pti.inv_amount}}</td>
+                        <td>{{pti.deduction}}</td>
+                        <td>{{pti.net_amt}}</td>
+                        <td>{{pti.receipt_no}}</td>
+                    </tr>
+                   <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                   </tr>
+                   <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+
+            </table>
+
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Deduction Reason:_____________________________________</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th><h5> For and on Behalf of PMCL</h5></th>
+                        <th></th>
+                        <th><h5>For Contractor/Vendor</h5></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <hr>
+                            <p>Authorized Representative(Signature)</p>
+                            <p>Name and Title:_____________________</p>
+                            <p>Date________________________________</p>
+                        </td>
+                        <td>
+                            <hr>
+                            <p>Authorized Representative(Signature)</p>
+                            <p>Name and Title:_____________________</p>
+                            <p>Date________________________________</p>
+                        </td>
+                        <td>
+                            <img src="/static/css/images/fishbowl_stamp.png" alt="logo" width="200" height="100">
+                            <hr>
+                            <p>Authorized Representative (Signature)</p>
+                            <p>Name and Title:- Nasir Irshad(CFO) </p>
+                            <p>Date: {{pti.ptiDate}}</p>
+
+                        </td>
+                    
+                    
+                    </tr>
+                </tbody>
+        </table>
+        </div>
+    </div>
+
+   
+
+    
+    
+    <div class="row">
+        <div class="col-md-1">
+         <h5>Note:</h5>
+        </div>
+        <div class="col-md-9">
+              <ol type="1">
+                  <li>
+                     This Certificate is merely a permission to raise invoice and does not entitle the holder of any outstanding claims with
+                    respect to the Services rendered until and unless the invoice is approved as per PMCL Authority Matrix
+                   </li>
+                   <li> Amounts mentioned are exclusive of taxes</li>
+                   <li> Receipts # to be filled by respective PMCL user department</li>
+              </ol>
+        </div>
+    </div>
+</div>
+{% endblock display %}

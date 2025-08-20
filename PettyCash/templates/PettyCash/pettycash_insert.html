@@ -1,0 +1,49 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+
+<h5 class="display-5"></h5>
+<h5 class="display-5"></h5>
+<h5 class="display-5">Petty Cash Entry</h5>
+<form action="" method="POST" class="input-form" autocomplete="off">
+    
+    {% csrf_token %}
+       <!--  To Load Entire Form  {{form|crispy}} --> 
+       <!-- To Customize The loaded Fields -->
+       <div class="row">
+          <div class="col-md-6">
+            {{form.accountHead|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+            {{form.pettyCashDate|as_crispy_field}}
+          </div>
+       </div>
+       <div class="row">
+          <div class="col-md-6">
+            {{form.narration|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+            {{form.branch|as_crispy_field}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+           {{form.credit|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+            {{form.debt|as_crispy_field}}
+          </div>
+      </div>
+   
+      <div class="row">
+         <div class="col-md-9">
+         </div>
+         <div class="col-md-3">
+               <button type="submit" class="btn btn-success col-md-12"> <i class="fas fa-database"></i>Submit</button>
+         </div>
+       </div>
+  
+  
+</form>
+{% endblock contents %}

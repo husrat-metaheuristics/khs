@@ -1,0 +1,36 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+
+<hr>
+<h5 class="display-5"></h5>
+<h5 class="display-5">Petty Cash Account Headers </h5>
+</hr>
+<p class="add-icon">
+    <a href="{% url 'ah_I' %}" class="btn btn-outline-success"> <i class="fas fa-plus"></i></a>
+</p>
+<table class="table table-dark table-hover">
+
+    <thead class="border-bottom font-weight-bold">
+         <tr>
+             <th scope="col">Date</td>
+             <th scope="col">Account Head Title</td>
+             <th scope="col">Action</th>
+         </tr>
+    </thead>
+    <tbody>
+            {% for head in Headers %}
+            <tr>
+                <td>{{head.accountHeadEntranceDate}}</td>
+                <td>{{head.accountHeadTitle}}</td>
+                <td> <a href="{% url 'ah_U' head.id %}" class="btn text-secondary px-0">
+                      <i class="fa fa-edit fa-lg"></i></a>                   
+                      <a href="{% url 'ah_del' head.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-trash-alt fa-lg text-danger float-right"></i></a>                   
+                </td>
+            </tr>
+            {% endfor %}
+            
+    </tbody>
+</table>
+
+{% endblock contents %}

@@ -1,0 +1,41 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+
+              <div class="row">
+                <div class="col-md-8">
+                    Title:{{invoice.title}}
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    PO Requested Date:
+                </div>
+                <div class="col-md-6">
+                    {{po.poRequestedDate}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    PO Number:
+                </div>
+                <div class="col-md-6">
+                    {{po.poNumber}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    PO Received Date:
+                </div>
+                <div class="col-md-6">
+                    {{po.poReceivedDate}}
+                </div>
+            </div>
+
+<div class="row">
+    <div class="col-md-8">
+       <iframe runat="server" src="{{po.poFile.url}}" width="100%" height="500px"></iframe>
+    </div>
+</div>
+
+{% endblock contents %}

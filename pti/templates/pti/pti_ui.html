@@ -1,0 +1,29 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+    <h5 class="display-5"></h5>
+    <h5 class="display-5"></h5>
+    <h5 class="display-5">Upload/Edit Pti Record</h5>
+    <form action="" method="POST" class="input-form"  autocomplete="off">
+       
+        {% csrf_token %}
+           <!--  To Load Entire Form  {{form|crispy}} --> 
+           <!-- To Customize The loaded Fields -->
+           <div class="row">
+                <div class="col-md-6">
+                   {{form.invoice|as_crispy_field}}
+                   {{form.ptiDate|as_crispy_field}}
+                   {{form.deduction|as_crispy_field}}
+                   {{form.notes|as_crispy_field}}
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4">       
+               </div>
+               <div class="col-md-4">
+                  <button type="submit" class="btn btn-success"> <i class="fas fa-database"></i>Save</button>
+               </div>
+           </div>
+    </form>
+    {% endblock contents %}
