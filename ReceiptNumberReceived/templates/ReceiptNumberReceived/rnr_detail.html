@@ -1,0 +1,54 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+
+<div class="row">
+  <div class="col-md-12"> <hr/></div>
+</div>
+<div class="row">
+    <div class="col-md-4"> </div>
+    <div class="col-md-6"><h4>Receipt Number Details </h4></div>
+</div>
+<div class="row">
+    <div class="col-md-12"> <hr/></div>
+</div>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        Title:
+    </div>
+    <div class="col-md-4">
+        {{title}}
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        Receipt # Received Date:
+    </div>
+    <div class="col-md-4">
+        {{rnr.receiptReceivedDate}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12"> <hr/></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">Receipt Number:</div>
+    <div class="col-md-4">{{rnr.receiptNumber}}</div>
+</div>
+<div class="row">
+    <div class="col-md-12"> <hr/></div>
+</div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">Notes:</div>
+    <div class="col-md-4">{{rnr.notes}}</div>
+</div>
+
+<hr/>
+<hr/>
+
+{% endblock contents %}

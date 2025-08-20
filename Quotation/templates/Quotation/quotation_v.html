@@ -1,0 +1,24 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+<div class="row">
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        Title:{{invoice.title}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+       Uploaded On:{{quotation.quotationReceivedDate}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+       <iframe runat="server" src="{{quotation.quotationFile.url}}" width="100%" height="500px"></iframe>
+    </div>
+</div>
+
+{% endblock contents %}

@@ -1,0 +1,228 @@
+{% extends "KHSystemApp/view_template.html" %}
+{% block display %}
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-2">
+            <img src="/static/css/images/fishbowl_logo.png" alt="logo" width="200" height="100">
+        </div>
+        <div class="col-md-4">
+            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Client Name:Pakistan Mobile Communication Limited(Jazz)</h5><br>
+            Address: 1-A,IBC Building, F-8 Markaz, Islamabad-Pakistan <br>
+            Contact Person:<br>
+            NTN#0802694-7<br>
+            Brand:Jazz<br>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                    <tr> 
+                        <b>Reimbursement Invoice</b>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    <tr>
+
+                        <td width="25%">FB Invoice#</td>
+                        <td width="25%">{{details.fb_inv_no}}</td>
+                        <td width="25%">Inv Date</td>
+                        <td width="25%">{{details.inv_date}}</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Estimate#</td>
+                        <td>{{details.fb_est_no}}</td>
+                        <td>Client Po#</td>
+                        <td>{{details.po}}</td>
+
+                    </tr>
+                    <tr>
+                        
+                        <td>Client Po Date:</td>
+                        <td>{{details.po_date}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+    <div class="row">
+        Title:{{details.title}}
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>S.N</th>
+                        <th>Details</th>
+                        <th>Qty</th>
+                        <th>Rate(Rs)</th>
+                        <th>Tax Rate</th>
+                        <th>Amount Rs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td><b>Being Reimbursement Of Following:-</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {% for item in values %}
+                    <tr>
+                        <td>{{item.serial_no}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.qty}}</td>
+                        <td>{{item.rate}}</td>
+                        <td>{{item.taxrate}}</td>
+                        <td>{{item.amount}}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td>
+                            {{ri_details.discount_txt}}
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ri_details.discount}}</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td></td>
+                        <td><u>Note:<br></u>{{ri_details.note_text}}
+                                    
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>  
+                    
+                    <tr>
+                        <td></td>
+                        <td><b>Cost Rs</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ri_details.cost}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>{{ri_details.tax_authority_title}}</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ri_details.sales_tax}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>Total Cost</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ri_details.total_cost}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+       </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Amount in words:{{details.amountInWords}} <br> for FISH BOWL (PVT) LTD.
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-4">
+            <img src="/static/css/images/fishbowl_stamp.png" alt="logo" width="200" height="100">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-9">
+            Note:<br>
+            <ol type="1">
+                <li>
+                    Please do not withheld income tax, Fish Bowl will deduct on behalf of PMCL
+                </li>
+                <li>
+                    All payments should be made by cheques crossed A/C Payee Only with title Fishbowl Pvt Ltd.
+                </li>
+                <li>
+                    Please verify the bill within ten days from the date of delivery
+                </li>
+                
+            </ol>
+            <ul style="list-style-type:none;">
+                <li>
+                    If we do not hear from you within this period we will consider the bill as correct
+                </li>
+                <li>
+                     Bank A/c Title: FISH BOWL (PVT) LTD. Standard Chartered Bank, Account # 01732138201
+                </li>
+                <li>
+                    Branch Name: Z-Block Branch, Lahore. Branch Code: 0137 ---IBAN: PK36 SCBL 0000 0017 3213 8201
+                </li>
+                <li>
+                    Our NTN is 4126367-7
+                </li>
+                <li>
+                    Our PNTN is 4126367-7
+                </li>
+             </ul>
+        </div>
+
+        <div class="col-md-3">
+            
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+              <p>Head Office:<br>
+                181/1,1st Floor, Y Block(Commercial)<br>
+                Phase 3,DHA ,Lahore<br>
+                Tel:- +92 42 35692464
+               </p>
+        </div>
+        <div class="col-md-4">
+            <p> Regional Office:<br>
+                2 A, Al Fateh Market ,Street 3, G-9/3<br> ,1st Floor, Y Block(Commercial)
+                Islamabad<br>
+                Tel:- +92 51 8734008-9
+            </p> 
+        </div>
+        <div class="col-md-4">
+            <p>Regional Office:
+                <br>C-28 B, Street 24, Commercial Area<br>
+                Phase 2(Ext),DHA.,Karachi
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 preview-footer-div">
+        </div>
+    </div>
+</div>
+{% endblock display %}

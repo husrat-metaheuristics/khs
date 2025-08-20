@@ -1,0 +1,36 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+
+<div class="row">
+    <div class="col-md-8">
+        Title:{{invoice.title}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        PR Requested Date:
+    </div>
+    <div class="col-md-6">
+        {{pr.prRequestedDate}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        PR Received Date:
+    </div>
+    <div class="col-md-6">
+        {{pr.prReceivedDate}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        PR Number:
+    </div>
+    <div class="col-md-6">
+        {{pr.prNumber}}
+    </div>
+</div>
+
+
+{% endblock contents %}
