@@ -1,0 +1,55 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+<form action="" method="POST" class="input-form" autocomplete="off">
+   <hr/>
+   <hr/>
+   <h5 class="display-5"> Estimate Type</h5>
+   <hr/>
+   <hr/>
+   
+    {% csrf_token %}
+       <!--  To Load Entire Form  {{form|crispy}} --> 
+       <!-- To Customize The loaded Fields -->
+       <div class="row">
+         <div class="col-md-6">
+            {{form.EstimateTypeTitle|as_crispy_field}}
+         </div>
+         <div class="col-md-6">
+            {{form.isTaxable|as_crispy_field}}
+         </div>
+      </div>
+
+      <hr/>
+      <hr/>
+     <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2">
+              <button type="submit" class="btn btn-success"> <i class="fas fa-database"></i>Save</button>
+        </div>
+
+      </div>
+
+      <hr/>
+      <hr/>
+
+        
+      
+  
+  
+</form>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("taxrange");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+</script>
+
+{% endblock contents %}

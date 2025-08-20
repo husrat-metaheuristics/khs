@@ -1,0 +1,57 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+    <h5 class="display-5"></h5>
+    <h5 class="display-5"></h5>
+    <h5 class="display-5">Upload/Edit iPortal Upload</h5>
+   <form action="" method="POST" class="input-form" enctype="multipart/form-data" autocomplete="off">
+        {% csrf_token %}
+           <div class="row">
+                 <div class="col-md-6">
+                   {{form.invoice|as_crispy_field}}
+                 </div>
+                 <div class="col-md-6">
+                   {{form.uploadedDate|as_crispy_field}}
+                </div>
+            </div>
+            
+            <div class="row">
+               <div class="col-md-12">
+                  {{form.notes|as_crispy_field}}
+               </div>
+            </div>
+            <hr/>
+            <hr/>
+            <div class="row">
+               <div class="col-md-12">
+                   <table class="table table-bordered">
+                       <thead>
+                           <tr>                             
+                               <th>1. Upload PTI</th>                             
+                               <th>2. Upload RI</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr>
+                              <td>
+                                {{form.ptiPdfFile|as_crispy_field}}
+                              </td>
+                              <td>
+                                 {{form.riPdfFile|as_crispy_field}}
+                              </td>
+                           </tr>
+                       </tbody>
+                   </table>
+           
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-md-10">      
+               </div>
+               <div class="col-md-2">
+                  <button type="submit" class="btn btn-success"> <i class="fas fa-database"></i>Save</button>
+               </div>
+            </div>
+   </form>
+   {% endblock contents %}

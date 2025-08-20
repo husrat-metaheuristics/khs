@@ -1,0 +1,119 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+   <hr/>
+   <hr/>
+   <h5 class="display-5">Provide Estimate Details </h5>
+   <hr/>
+   <hr/>
+<form action="" method="POST" class="input-form" autocomplete="off">
+    {% csrf_token %}
+       <!--  To Load Entire Form  {{form|crispy}} --> 
+       <!-- To Customize The loaded Fields -->
+       <div class="row">
+           <div class="col-md-6">
+              {{form.title|as_crispy_field}}
+           </div>
+           <div class="col-md-6">
+              {{form.fishbowlid|as_crispy_field}}
+           </div>
+       </div>
+       <div class="row">
+          <div class="col-md-6">
+             {{form.vendors|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+             {{form.vendorInvoiceId|as_crispy_field}}
+          </div>
+       </div>
+
+      
+       <div class="row">
+         <div class="col-md-6">
+           {{form.clientservices|as_crispy_field}}
+         </div>
+         <div class="col-md-6">
+           {{form.client|as_crispy_field}}
+         </div>
+       </div>
+
+       
+
+       <div class="row">
+          <div class="col-md-6">
+           {{form.taxauthority|as_crispy_field}}
+          </div>
+          <div class="col-md-6">
+            {{form.submissionToClientDate|as_crispy_field}} 
+          </div>
+
+         </div>
+       
+
+      <div class="row">
+              <div class="col-md-5">
+                {{form.advancepayment|as_crispy_field}}
+              </div>
+              <div class="col-md-1">
+                 <span id="advancepaymentDisplay"></span>
+              </div>
+              <div class="col-md-5">
+                {{form.discountOffered|as_crispy_field}}
+              </div>
+              <div class="col-md-1">
+                <span id="discountofferedDisplay"></span>
+              </div>
+      </div>
+
+      
+          
+          
+          
+        
+      <div class="row">
+         <div class="col-md-12">
+            {{form.notes|as_crispy_field}}
+         </div>
+      </div>
+                    
+
+      <div class="row">
+         <div class="col-md-10"></div>
+         <div class="col-md-2">
+            <button type="submit" class="btn btn-success col-md-8">Save</button>
+         </div>
+       </div>
+  
+  
+</form>
+<script>
+           
+
+        var sliderAdvPmt = document.getElementById("advancepayment");
+        var advPmtDsp = document.getElementById("advancepaymentDisplay");
+
+        var sliderDiscountOfr = document.getElementById("discountoffered");
+        var discountOfrDsp = document.getElementById("discountofferedDisplay");
+        advPmtDsp.innerHTML = sliderAdvPmt.value; // Display the default slider value
+        discountOfrDsp.innerHTML=sliderDiscountOfr.value;
+
+         // Update the current slider value (each time you drag the slider handle)
+         sliderAdvPmt.oninput = function() {
+                 advPmtDsp.innerHTML = this.value;
+              }
+
+         sliderDiscountOfr.oninput=function(){
+             discountOfrDsp.innerHTML=this.value;
+          }
+
+          
+
+         $(function() {
+               $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+            });
+
+
+</script>
+
+
+{% endblock contents %}

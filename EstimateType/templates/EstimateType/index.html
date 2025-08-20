@@ -1,0 +1,43 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+<hr/>
+<hr/>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-3"><h5>Estimate Type</h5></div>
+    <div class="col-md-5"></div>
+</div>
+<hr/>
+<hr/>
+
+<p class="add-icon"><a href="{% url 'estimateType_i' %}" class="btn btn-outline-success"> <i class="fas fa-plus"></i></a></p>
+<table class="table table-dark table-hover">
+    <thead class="border-bottom font-weight-bold">
+         <tr>
+             <th scope="col">#</th>
+             <th scope="col">Estimate Type</td>
+             <th scope="col">Is Taxable?</td>
+             <th scope="col">Action</th>
+         </tr>
+    </thead>
+    <tbody>
+            {% for estType in estimateTypes %}
+
+            <tr>
+                <th scope="row">{{estType.id}}</th>
+                <td>{{estType.EstimateTypeTitle}}</td>
+                <td>{{estType.isTaxable}}</td>
+                <td> 
+                      <a href="{% url 'estimateType_u' estType.id %}" class="btn text-secondary px-0">
+                         <i class="fa fa-edit fa-lg"></i>
+                      </a> 
+
+                      <a href="{% url 'estimateType_d' estType.id %}" class="btn text-secondary px-0">
+                         <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                      </a>
+                </td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+{% endblock contents %}

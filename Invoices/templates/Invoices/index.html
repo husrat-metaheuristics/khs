@@ -1,0 +1,142 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+<hr/>
+<hr/>
+<div class="row">
+    <div class="col-md-5">
+
+    </div>
+    <div class="col-md-2 pageTitle">
+        Projects
+    </div>
+    <div class="col-md-4"></div>
+    <div class="col-md-1">
+        <a href="{% url 'invoice_insert' %}" class="btn btn-outline-success"> <i class="fas fa-plus"></i></a>
+    </div>
+</div>
+<hr/>
+<hr/>
+{% for inv in invoices__ %}
+    <div class="row">
+            <div class="col-md-12">
+                    <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                     <div class="card-header" id="{{inv.headingId}}">
+                                            <div class="row headerContiner">
+                                                <div class="col-md-10">
+                                                   <h5 data-toggle="collapse" data-target="{{inv.collapseTarget}}">{{inv.fishbowlid}}. Title:-{{inv.ttl}}</h5>	
+                                                </div>
+                                                <div class="col-md-2">  
+                                                    <a href="{% url 'invoice_update' inv.id__ %}" class="btn text-secondary px-0">
+                                                    <i class="fa fa-edit fa-lg"></i></a>      
+                                                    <a href="{% url 'invoice_delete' inv.id__ %}" class="btn text-secondary px-0">
+                                                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i></a>     
+                                                    <a href="{% url 'invoice_details' inv.id__ %}" class="btn text-secondary px-0">
+                                                    <i class="fas fa-file-invoice"></i></a> 
+            
+                                                </div>
+                                            </div>                                                                               
+                                       </div>
+                                       <div id="{{inv.collapseId}}" class="collapse" aria-labelledby="{{inv.headingId}}" data-parent="#accordionExample">
+                                            <div class="card-body">
+                                                        <div class="row">     
+                                                            {% for stg in inv.stages %} 
+                                                                 
+                                                                <div class="col-md-4 stags"> 
+                                                                       {% if stg.isCreated %}
+                                                                       
+                                                                       <div class="stepHeader">
+                                                                          <i class="fa fa-check" aria-hidden="true"></i>
+                                                                          Step {{stg.counter__}}
+                                                                          <br/>
+                                                                          {{stg.title}}
+                                                                       </div>
+                                                                          <div class="actionAlign">
+                                                                            <a href="{% url stg.editLink inv.id__ %}" class="btn text-secondary px-0">
+                                                                                <i class="fa fa-edit fa-lg"></i>
+                                                                                </a> 
+    
+                                                                            <a href="{% url stg.deleteLink inv.id__ %}" class="btn text-secondary px-0">
+                                                                                <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                                                            </a> 
+
+                                                                            
+                                                                            <a href="{% url stg.previewLink inv.id__ %}" class="btn text-secondary px-0">
+                                                                                    <i class="fas fa-file-invoice"></i>
+                                                                            </a>
+                                                                            
+
+                                                                          </div>
+                                                                       {% else %}
+                                                                         <div class="stepHeader">
+                                                                           <i class="fa fa-times" aria-hidden="true"></i>
+                                                                           Step {{stg.counter__}}
+                                                                           <br/>
+                                                                           {{stg.title}}
+                                                                         </div>
+                                                                         <div class="actionAlign">
+                                                                              <a href="{% url stg.addLink %}" class="btn text-secondary px-0">
+                                                                                <i class="fas fa-plus"></i></a>
+                                                                              </a>
+                                                                             
+                                                                         </div>
+                                                                       {%endif%}                          
+                                                                        <div class="card_body">{{stg.txtTodisplay|safe}}</div> 
+                                                                        {% if stg.hasExtraLinks %}
+                                                                           {% if stg.isFullyPaidEst %}
+                                                                           <a href="{% url stg.adv_preview_lnk inv.id__ %}" class="btn btn-outline-success">Preview </a>
+                                                                           <a href="{% url stg.adv_pdf_lnk inv.id__ %}" class="btn btn-outline-success">Get Pdf-</a>
+                                                                           {% else %}
+                                                                           <a href="{% url stg.adv_preview_lnk inv.id__ %}" class="btn btn-outline-success">Preview Adv-</a>
+                                                                           <a href="{% url stg.adv_pdf_lnk inv.id__ %}" class="btn btn-outline-success">Get Pdf(Adv)-</a>
+                                                                           <br/>
+                                                                           <br/>
+                                                                           <a href="{% url stg.rem_preview_lnk inv.id__ %}" class="btn btn-outline-success">Preview Rem</a>
+                                                                           <a href="{% url stg.rem_pdf_lnk inv.id__ %}" class="btn btn-outline-success">Get Pdf(Rem)</a>
+                                                                          
+                                                                           {%endif%}
+                                                                          
+                                                                        {%endif%} 
+                                                                        <hr/>
+                                                                        <!-- Jazz Receipt Request Section.-->                                                                       
+                                                                        <hr/>                                                                       
+                                                                        {% if stg.hasReceiptRequestLinks %}
+                                                                            {% if stg.requirmentSatisfied %}
+                                                                               <a href="{% url 'jazzrecreq_pdf' inv.id__ %}" class="btn btn-outline-success">Download For Receipt Request-</a>                                             
+                                                                            {% endif %}
+                                                                            <hr/>
+                                                                        <a href="{% url 'pti_pdf_adv' inv.id__ %}" class="btn btn-outline-success">GET PTI PDF</a>
+                                                                        <a href="{% url 'reimb_pdf_adv' inv.id__ %}" class="btn btn-outline-success">-GET RI PDF</a>    
+                                                                        {%endif%}
+                                                                         <!---------------------------------->
+                                                                        <!-- Jazz iPortal Section.-->                                                                       
+                                                                        <hr/>                                                                       
+                                                                        {% if stg.hasiportalLinks %}
+                                                                            {% if stg.requirmentSatisfied %}
+                                                                               <a href="{% url 'iportalpdf' inv.id__ %}" class="btn btn-outline-success">Download For Receipt Request-</a>                                             
+                                                                            {% endif %}
+                                                                            <hr/>
+                                                                        <a href="{% url 'pti_pdf_rem' inv.id__ %}" class="btn btn-outline-success">GET PTI PDF</a>
+                                                                        <a href="{% url 'reimb_pdf_rem' inv.id__ %}" class="btn btn-outline-success">-GET RI PDF</a>    
+                                                                        {%endif%}
+                                                                         <!---------------------------------->
+
+                                                                        
+                                                                </div>
+                                                               
+                                                                
+                                                         {% endfor %}
+                                                        
+                                                         </div>
+                                                        
+                                                </div>
+                                                
+                                         </div>
+                                        
+                            </div>
+                            
+                     </div>
+             </div>
+     </div>
+{% endfor %}
+{% endblock contents %}
