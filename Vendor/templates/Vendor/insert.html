@@ -1,0 +1,59 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+<h5 class="display-5"></h5>
+<h5 class="display-5"></h5>
+<h5 class="display-5">Vendor</h5>
+<form action="" method="POST" enctype="multipart/form-data" class="input-form" autocomplete="off">
+    {% csrf_token %}
+   
+       <div class="row">
+         <div class="col-md-8">
+            {{form.name|as_crispy_field}}
+      </div>
+    </div>
+
+         <div class="row">
+           <div class="col-md-8">
+               {{form.ntn|as_crispy_field}}
+           </div>
+         </div>
+
+          
+        <div class="row">
+      <div class="col-md-8">
+         {{form.address|as_crispy_field}}
+      </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+        
+            <img src= "{{ form.logo.url }}" width="100" height="100" >
+        </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-8">
+         {{form.logo|as_crispy_field}}
+      </div>
+   </div>
+
+      <div class="row">
+         <div class="col-md-2">
+
+         </div>
+         <div class="col-md-8">
+               <button type="submit" class="btn btn-success col-md-8"> <i class="fas fa-database"></i>Submit</button>
+         </div>
+
+       </div>
+  
+  
+</form>
+
+
+{% endblock contents %}

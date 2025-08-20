@@ -1,0 +1,51 @@
+{% extends "KHSystemApp/base.html" %}
+{% load crispy_forms_tags %}
+{% block contents %}
+
+    
+    
+    <form action="" method="POST" class="input-form" enctype="multipart/form-data" autocomplete="off">
+        <div class="row">
+            <div class="col-md-12"><hr/></div>
+        </div>
+        <hr/>
+        <h5 class="display-5">Upload/Edit Sales Tax Invoice</h5>
+        <hr/>
+        <hr/>
+        {% csrf_token %}
+           <!--  To Load Entire Form  {{form|crispy}} --> 
+           <!-- To Customize The loaded Fields -->
+           <div class="row">
+                <div class="col-md-5">
+                   {{form.invoice|as_crispy_field}}
+                </div>
+                <div class="col-md-5">
+                    {{form.salesTaxInvoiceRequestedDate|as_crispy_field}}
+                </div>
+               
+           </div>
+           <div class="row">
+               <div class="col-md-5">
+                   {{form.salesTaxInvoiceReceivedDate|as_crispy_field}}
+               </div>
+               <div class="col-md-5">
+                   {{form.salesTaxFile|as_crispy_field}}
+               </div>
+               
+           </div>
+           <div class="row">
+               <div class="col-md-8">
+                   {{form.notes|as_crispy_field}}
+               </div>
+           </div>
+                             
+            <div class="row">
+               <div class="col-md-8">
+                  
+               </div>
+               <div class="col-md-4">
+                   <button type="submit" class="btn btn-success"> <i class="fas fa-database"></i>Save</button>
+               </div>                
+            </div>
+    </form>
+    {% endblock contents %}

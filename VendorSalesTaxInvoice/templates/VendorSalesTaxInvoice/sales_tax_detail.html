@@ -1,0 +1,71 @@
+{% extends "KHSystemApp/base.html" %}
+{% block contents %}
+
+<div class="row">
+  <div class="col-md-12"> <hr/></div>
+</div>
+<div class="row">
+    <div class="col-md-4"> </div>
+    <div class="col-md-6"><h4>Sales Tax Invoice Details </h4></div>
+</div>
+<div class="row">
+    <div class="col-md-12"> <hr/></div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+        Title:
+    </div>
+    <div class="col-md-5">
+        {{st.invoice.title}}
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+        Sales Tax Invoice Reqest Date:
+    </div>
+    <div class="col-md-5">
+        {{st.salesTaxInvoiceRequestedDate}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12"> <hr/></div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+        Sales Tax Invoice Received Date:
+    </div>
+    <div class="col-md-5">
+        {{st.salesTaxInvoiceReceivedDate}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12"> <hr/></div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-5">
+        Sales Tax File:
+    </div>
+    <div class="col-md-5">
+        {{st.salesTaxFile}}
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-5">Notes:</div>
+    <div class="col-md-5">{{st.notes}}</div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-4">
+        <a href="{% url 'back_to_projects' %}" class="btn btn-success">Back To Projects.</a>
+    </div>
+</div>
+<hr/>
+{% endblock contents %}
