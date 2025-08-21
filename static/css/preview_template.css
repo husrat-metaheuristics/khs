@@ -1,0 +1,23 @@
+.preview-footer-div
+{
+    height: 20px;
+    background-color: #ffe600;
+}
+
+body{
+    font-size: 14px;
+}
+
+.container{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.table{
+    border-color: black;
+}
+
+.cen{
+    display:block;
+    text-align: center;
+}
